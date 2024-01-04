@@ -1,0 +1,18 @@
+local headers = {
+    ["Content-type"] = "application/json", 
+    ["Accept"] = "application/json"
+}
+local http = game:GetService("HttpService")
+local ServerId = request({Url = "http://192.168.1.129/Servers", Method = "POST", Body = http:JSONEncode({ServerId = game.JobId}), Headers = headers}).Body
+queue_on_teleport([[
+    if not game:IsLoaded() then
+        game.Loaded:Wait()
+    end
+    game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:connect(function(a)
+        if a.Name == 'ErrorPrompt' then
+            loadstring(game:HttpGet('https://github.com/volcanoboy08/Project-Auto/blob/main/AutoRob'))()
+        end
+    end
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Pxsta72/ProjectAuto/main/free'))()
+]])
+game:GetService("TeleportService"):TeleportToPlaceInstance(606849621,ServerId,game:GetService("Players").LocalPlayer)
