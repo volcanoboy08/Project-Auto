@@ -3,7 +3,7 @@ local headers = {
     ["Accept"] = "application/json"
 }
 local http = game:GetService("HttpService")
-local ServerId = request({Url = "http://192.168.1.129/Servers", Method = "POST", Body = http:JSONEncode({ServerId = game.JobId}), Headers = headers}).Body
+local ServerId = request({Url = "http://192.168.1.129/Servers", Method = "POST", Body = http:JSONEncode({ServerId = game.JobId, Player = game:GetService("Players").LocalPlayer.Name}), Headers = headers}).Body
 queue_on_teleport([[
     if not game:IsLoaded() then
         game.Loaded:Wait()
