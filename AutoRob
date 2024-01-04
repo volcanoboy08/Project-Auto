@@ -9,10 +9,5 @@ queue_on_teleport([[
         game.Loaded:Wait()
     end
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Pxsta72/ProjectAuto/main/free'))()
-    game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:connect(function(a)
-        if a.Name == 'ErrorPrompt' then
-            loadstring(game:HttpGet('https://github.com/volcanoboy08/Project-Auto/blob/main/AutoRob'))()
-        end
-    end
 ]])
 game:GetService("TeleportService"):TeleportToPlaceInstance(606849621,ServerId,game:GetService("Players").LocalPlayer)
